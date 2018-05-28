@@ -1,0 +1,28 @@
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Restaurant list in this area</h1>
+	<a href="/restaurant/new/">create your own favorite restaurant</a>
+	<br>
+	<br>
+	<br>
+
+	<div>
+		{% for a in restaurants %}
+		{{a["id"]}}
+		{{a["name"]}}
+		<br>
+		<a href="/restaurant/">Edit this restaurant</a>
+		<br>
+		<a href="/restaurant/">Delete this restaurant</a>
+		<br>
+		<br>
+
+	</div>
+		{% endfor %}
+
+</body>
+</html>

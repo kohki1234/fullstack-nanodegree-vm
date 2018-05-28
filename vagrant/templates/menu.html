@@ -1,0 +1,28 @@
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Menu list in restaurant.name</h1>
+	<a href="#">create your own favorite menu</a>
+	<br>
+	<br>
+	<br>
+
+	<div>
+		{% for a in items %}
+		{{a["name"]}}
+		{{a["description"]}}
+		<br>
+		<a href="#">Edit this menu</a>
+		<br>
+		<a href="#">Delete this menu</a>
+		<br>
+		<br>
+
+	</div>
+		{% endfor %}
+
+</body>
+</html>
