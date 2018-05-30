@@ -1,6 +1,15 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from database_setup_final import Restaurant, Base, MenuItem
+
+engine = create_engine('sqlite:///restaurantmenu_final.db')
+Base.metadata.bind = engine
+
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
 
 restaurant = {'name': 'The CRUDdy Crab', 'id': '1'}
 
@@ -11,7 +20,6 @@ restaurants = [{'name': 'The CRUDdy Crab', 'id': '1'}, {'name':'Blue Burgers', '
 items = [ {'name':'Kohki Pizza', 'description':'made with fresh cheese', 'price':'$5.99','course' :'Entree', 'id':'1'}, {'name':'Kohki Cake','description':'made with Dutch Chocolate', 'price':'$3.99', 'course':'Dessert','id':'2'},{'name':'Caesar Salad', 'description':'with fresh organic vegetables','price':'$5.99', 'course':'Entree','id':'3'},{'name':'Iced Tea', 'description':'with lemon','price':'$.99', 'course':'Beverage','id':'4'},{'name':'Spinach Dip', 'description':'creamy dip with fresh spinach','price':'$1.99', 'course':'Appetizer','id':'5'} ]
 item =  {'name':'Cheese Pizza','description':'made with fresh cheese','price':'$5.99','course' :'Entree'}
 
- 
 
 @app.route("/")
 @app.route("/restaurants")
@@ -39,16 +47,16 @@ def showMenu():
 
 @app.route("/restaurant/restaurant_id/menu_id/new")
 def newMenuItem():
-	return "This page is for making a new menu item for restaurant " 
+	return render_template('newmenuitem.html')
 
 
 @app.route("/restaurant/restaurant_id/menu/menu_id/edit")
 def editMenuItem():
-	return "This page is for editing menu item " 
+	return render_template('editmenuitem.html')
 
 @app.route("/restaurant/restaurant_id/menu/menu_id/delete")
 def deleteMenuItem():
-	return "This page is for deleteing menu item "
+	return render_template('deletemenuitem.html')
 
 
 if __name__ == '__main__':
