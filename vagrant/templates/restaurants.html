@@ -11,14 +11,14 @@
 	<br>
 
 	<div>
-		{% for a in restaurants %}
-		{%if a.id > 9:%}
-			<!-- {{a.id}} -->
-			<b>{{a.name}}</b>
+		{% for resname in restaurants %}
+		{%if resname.id > 9:%}
+			<!-- {{resname.id}} -->
+			<b>{{resname.name}}</b>
 		<br>
-		description of the restaurant :{{a.description}}
+		description of the restaurant :{{resname.description}}
 		<br>
-		<a href="{{url_for('editRestaurant', restaurant_id = restaurant_id)}}">Edit this restaurant</a>
+		<a href="{{url_for('editRestaurant')}}">Edit this restaurant</a>
 		<br>
 		<a href="/restaurant/">Delete this restaurant</a>
 		<br>
