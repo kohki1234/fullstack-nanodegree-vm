@@ -11,12 +11,16 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-
 @app.route("/")
 @app.route("/restaurants")
 def showRestaurants():
 	restaurants = session.query(Restaurant).all()
-	return render_template('restaurants.html',restaurants = restaurants)
+
+	for n in restaurants:
+		restaurant_id = n.id
+		print restaurant_id
+
+	return render_template('restaurants.html',restaurants=restaurants, restaurant_id=restaurant_id)
 
 
 @app.route("/restaurant/new/", methods=['GET','POST'])
@@ -28,11 +32,13 @@ def newRestaurant():
 		session.commit()
 		return redirect(url_for('showRestaurants'))
 	else:
-		return render_template('newrestaurant.html')
+		return render_template('newrestaurant.html', restaurant=restaurant, restaurant_id=restaurant_id)
 
-@app.route("/restaurant/<int:restaurant_id>/edit")
+@app.route("/restaurant/<int:id>/edit")
+
 def editRestaurant(restaurant_id):
-	return render_template('editrestaurant.html')
+
+	return render_template('editrestaurant.html', restaurant= restaurant, restaurant_id=restaurant_id)
 
 
 @app.route("/restaurant/<int:restaurant_id>/delete")
