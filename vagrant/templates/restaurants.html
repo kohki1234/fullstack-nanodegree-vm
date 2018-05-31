@@ -13,12 +13,12 @@
 	<div>
 		{% for a in restaurants %}
 		{%if a.id > 9:%}
-			<!-- {{a.id}} -->
+			
 			<b>{{a.name}}</b>
 		<br>
 		description of the restaurant :{{a.description}}
 		<br>
-		<a href="{{url_for('editRestaurant', restaurant_id = restaurant_id)}}">Edit this restaurant</a>
+		<a href="{#}">Edit this restaurant</a>
 		<br>
 		<a href="/restaurant/">Delete this restaurant</a>
 		<br>
