@@ -18,7 +18,8 @@ def showRestaurants():
 
 	for n in restaurants:
 		restaurant_id = n.id
-		print restaurant_id
+		restaurant_name = n.name
+		#print restaurant_name
 
 	return render_template('restaurants.html',restaurants=restaurants, restaurant_id=restaurant_id)
 
@@ -34,11 +35,12 @@ def newRestaurant():
 	else:
 		return render_template('newrestaurant.html', restaurant=restaurant, restaurant_id=restaurant_id)
 
-@app.route("/restaurant/<int:id>/edit")
+@app.route("/restaurant/<int:restaurant_id>/edit")
 
 def editRestaurant(restaurant_id):
+	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
 
-	return render_template('editrestaurant.html', restaurant= restaurant, restaurant_id=restaurant_id)
+	return render_template('editrestaurant.html', restaurant_id=restaurant_id, restaurant=restaurant)
 
 
 @app.route("/restaurant/<int:restaurant_id>/delete")
