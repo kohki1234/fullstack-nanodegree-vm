@@ -16,7 +16,7 @@ session = DBSession()
 def showRestaurants():
 	restaurants = session.query(Restaurant).all()
 
-	return render_template('restaurants.html',restaurants=restaurants)
+	return render_template('restaurants.html')
 
 
 @app.route("/restaurant/new/", methods=['GET','POST'])
@@ -29,9 +29,6 @@ def newRestaurant():
 		return redirect(url_for('showRestaurants'))
 	else:
 		return render_template('newrestaurant.html')
-
-
-
 
 
 @app.route("/restaurant/<int:restaurant_id>/edit", methods=['GET','POST'])
