@@ -28,14 +28,8 @@ def newRestaurant():
 		session.commit()
 		return redirect(url_for('showRestaurants'))
 	else:
-<<<<<<< HEAD
-		return render_template('newrestaurant.html')
-||||||| merged common ancestors
-		return render_template('newrestaurant.html', restaurant=restaurant, restaurant_id=restaurant_id)
-=======
-		return render_template('newrestaurant.html')
 
->>>>>>> master
+		return render_template('newrestaurant.html')
 
 @app.route("/restaurant/<int:restaurant_id>/edit", methods=['GET','POST'])
 
@@ -60,14 +54,7 @@ def editRestaurant(restaurant_id):
 		return render_template('editrestaurant.html',restaurant_id = restaurant_id)
 
 
-
-
-<<<<<<< HEAD
-||||||| merged common ancestors
-	return render_template('editrestaurant.html', restaurant_id=restaurant_id, restaurant=restaurant)
-=======
 	return render_template('editrestaurant.html', restaurant=restaurant)
->>>>>>> master
 
 
 @app.route("/restaurant/<int:restaurant_id>/delete")
