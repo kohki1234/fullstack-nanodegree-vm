@@ -18,7 +18,7 @@
 		<br>
 		description of the restaurant :{{a.description}}
 		<br>
-		<a href="{{url_for('editRestaurant', restaurant_id = restaurant_id)}}">Edit this restaurant</a>
+		<a href="{{url_for('editRestaurant', restaurant_id = a.id)}}">Edit this restaurant</a>
 		<br>
 		<a href="/restaurant/">Delete this restaurant</a>
 		<br>
