@@ -16,12 +16,7 @@ session = DBSession()
 def showRestaurants():
 	restaurants = session.query(Restaurant).all()
 
-	for n in restaurants:
-		restaurant_id = n.id
-		restaurant_name = n.name
-		#print restaurant_name
-
-	return render_template('restaurants.html',restaurants=restaurants, restaurant_id=restaurant_id)
+	return render_template('restaurants.html')
 
 
 @app.route("/restaurant/new/", methods=['GET','POST'])
@@ -33,7 +28,14 @@ def newRestaurant():
 		session.commit()
 		return redirect(url_for('showRestaurants'))
 	else:
+<<<<<<< HEAD
 		return render_template('newrestaurant.html')
+||||||| merged common ancestors
+		return render_template('newrestaurant.html', restaurant=restaurant, restaurant_id=restaurant_id)
+=======
+		return render_template('newrestaurant.html')
+
+>>>>>>> master
 
 @app.route("/restaurant/<int:restaurant_id>/edit", methods=['GET','POST'])
 
@@ -60,6 +62,12 @@ def editRestaurant(restaurant_id):
 
 
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+	return render_template('editrestaurant.html', restaurant_id=restaurant_id, restaurant=restaurant)
+=======
+	return render_template('editrestaurant.html', restaurant=restaurant)
+>>>>>>> master
 
 
 @app.route("/restaurant/<int:restaurant_id>/delete")
