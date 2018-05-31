@@ -12,8 +12,11 @@
 
 	<div>
 		{% for a in restaurants %}
-		{{a["id"]}}
-		{{a["name"]}}
+		{%if a.id > 9:%}
+			{{a.id}}
+			{{a.name}}
+		<br>
+		{{a.description}}
 		<br>
 		<a href="/restaurant/">Edit this restaurant</a>
 		<br>
@@ -22,7 +25,9 @@
 		<br>
 
 	</div>
+		{% endif %}
 		{% endfor %}
+
 
 </body>
 </html>

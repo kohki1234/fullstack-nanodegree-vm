@@ -19,7 +19,7 @@ session = DBSession()
 
 
 # Menu for UrbanBurger (the code above is really important, you need to run it on the another py file as well)
-restaurant1 = Restaurant(name="Kohki Burger Restaurant")
+restaurant1 = Restaurant(name="Kohki Burger Restaurant" , description="very famous for Kohki Burger")
 
 session.add(restaurant1)
 session.commit()
@@ -81,7 +81,7 @@ session.commit()
 
 
 # Menu for Super Stir Fry
-restaurant2 = Restaurant(name="Kohki strange Pizza")
+restaurant2 = Restaurant(name="Kohki strange Pizza", description="very famous for strange pizza with cheeze and ice cream")
 
 session.add(restaurant2)
 session.commit()
@@ -125,7 +125,7 @@ session.commit()
 
 
 # Menu for Panda Garden
-restaurant1 = Restaurant(name="Panda Garden")
+restaurant1 = Restaurant(name="Panda Garden", description="You can see real Panda inside of the restaurant")
 
 session.add(restaurant1)
 session.commit()
@@ -163,7 +163,7 @@ session.commit()
 
 
 # Menu for Thyme for that
-restaurant1 = Restaurant(name="Kohki vegitarian special restaurant")
+restaurant1 = Restaurant(name="Kohki vegitarian special restaurant",description="You can see tremendous salad menu in this restaurant!!")
 
 session.add(restaurant1)
 session.commit()
@@ -207,7 +207,7 @@ session.commit()
 
 
 # Menu for Tony's Bistro
-restaurant1 = Restaurant(name="Tony\'s Bistro ")
+restaurant1 = Restaurant(name="Tony\'s Bistro ", description="Tony\'s special steak is excellent")
 
 session.add(restaurant1)
 session.commit()
@@ -245,7 +245,7 @@ session.commit()
 
 
 # Menu for Andala's
-restaurant1 = Restaurant(name="Andala\'s")
+restaurant1 = Restaurant(name="Andala\'s", description="Andala is famous for Itallian casine and he spent most of his life for pursuing Itallian")
 
 session.add(restaurant1)
 session.commit()
@@ -283,7 +283,7 @@ session.commit()
 
 
 # Menu for Auntie Ann's
-restaurant1 = Restaurant(name="Auntie Ann\'s Diner ")
+restaurant1 = Restaurant(name="Auntie Ann\'s Diner", description="garlic rice is amazing, be noted that this restaurant only opens night time")
 
 session.add(restaurant1)
 session.commit()
@@ -333,7 +333,7 @@ session.commit()
 
 
 # Menu for Cocina Y Amor
-restaurant1 = Restaurant(name="Cocina Y Amor ")
+restaurant1 = Restaurant(name="Cocina Y Amor", description="this restaurant is famous for sea food")
 
 session.add(restaurant1)
 session.commit()
@@ -352,7 +352,7 @@ session.add(menuItem2)
 session.commit()
 
 
-restaurant1 = Restaurant(name="State Bird Provisions")
+restaurant1 = Restaurant(name="State Bird Provisions", description="This restaurant is famous for Kebab, beef and cheeze Kebab is very nice")
 session.add(restaurant1)
 session.commit()
 
