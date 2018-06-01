@@ -1,25 +1,14 @@
 <html>
 	<body>
-<<<<<<< HEAD
 		<h1>Editing restaurant_name</h1>
-		<form action= "{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method = 'POST'>
-||||||| merged common ancestors
-		<h1>Editing {{restaurant.name}}</h1>
-		<form action= "{{url_for('editRestaurant', restaurant_id=restaurant_id, restaurant_name=restaurant_name)}}" method = 'POST'>
-=======
-		<h1>Editing {{restaurant.name}}</h1>
-		<form action= "{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method = 'POST'>
->>>>>>> master
+		<form action= "{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method = 'post'>
 
 		<p>Name:</p>
 		<input type = 'text' size='30' name = 'name' placeholder = 'name'>
 		<br><br>
 		<p>description</p>
-		<input type = 'description' size='30' name = 'name' placeholder = 'description'>
+		<input type = 'description' size='30' name = 'description' placeholder = 'description'>
 		<br><br>
-		<p>price</p>
-		<input type = 'price' size='30' name = 'name' placeholder = 'price'>
-
 		<input type='submit' value='Edit'>
 		</form>
 		<a href= '{{url_for("showRestaurants")}}'>Cancel</a>

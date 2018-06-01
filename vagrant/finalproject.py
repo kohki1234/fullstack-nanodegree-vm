@@ -16,7 +16,12 @@ session = DBSession()
 def showRestaurants():
 	restaurants = session.query(Restaurant).all()
 
-	return render_template('restaurants.html')
+	for n in restaurants:
+		restaurant_id = n.id
+		restaurant_name = n.name
+		#print restaurant_name
+
+	return render_template('restaurants.html',restaurants=restaurants, restaurant_id=restaurant_id)
 
 
 @app.route("/restaurant/new/", methods=['GET','POST'])
@@ -28,33 +33,33 @@ def newRestaurant():
 		session.commit()
 		return redirect(url_for('showRestaurants'))
 	else:
-
 		return render_template('newrestaurant.html')
 
 @app.route("/restaurant/<int:restaurant_id>/edit", methods=['GET','POST'])
 
 def editRestaurant(restaurant_id):
-	editedRestaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+	editedRestaurant = session.query(Restaurant).filter_by(id = restaurant_id).first()
 
 	if request.method == "POST":
-		if request.form['name']:
-			editedRestaurant.name = request.form['name']
+		if request.form.get('name', False):
+			editedRestaurant.name = request.form.get('name', False)
 
-		if request.form['description']:
-			editedRestaurant.description = request.form['description']
+		if request.form.get('description',False):
+			editedRestaurant.description = request.form.get('description',False)
 
-		if request.form['price']:
-			editedRestaurant.price = request.form['price']
+		if request.form.get('price', False):
+			editedRestaurant.price = request.form.get('price', False)
 
 		session.add(editedRestaurant)
 		session.commit()
-		return redirect(url_for(showRestaurants))
+		return redirect(url_for('showRestaurants'))
 
 	else:
 		return render_template('editrestaurant.html',restaurant_id = restaurant_id)
 
 
-	return render_template('editrestaurant.html', restaurant=restaurant)
+
+
 
 
 @app.route("/restaurant/<int:restaurant_id>/delete")
