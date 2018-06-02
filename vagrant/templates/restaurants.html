@@ -11,7 +11,6 @@
 	<br>
 
 	<div>
-<<<<<<< HEAD
 		{% for a in restaurants %}
 		{%if a.id > 9:%}
 			<!-- {{a.id}} -->
@@ -20,27 +19,8 @@
 		description of the restaurant :{{a.description}}
 		<br>
 		<a href="{{url_for('editRestaurant', restaurant_id = a.id)}}">Edit this restaurant</a>
-||||||| merged common ancestors
-		{% for a in restaurants %}
-		{%if a.id > 9:%}
-			<!-- {{a.id}} -->
-			<b>{{a.name}}</b>
 		<br>
-		description of the restaurant :{{a.description}}
-		<br>
-		<a href="{{url_for('editRestaurant', restaurant_id = restaurant_id)}}">Edit this restaurant</a>
-=======
-
-		{% for resname in restaurants %}
-		{%if resname.id > 9:%}
-			<!-- {{resname.id}} -->
-			<b>{{resname.name}}</b>
-		<a href="{#}">Edit this restaurant</a>
-
-		<a href="{{url_for('editRestaurant')}}">Edit this restaurant</a>
->>>>>>> master
-		<br>
-		<a href="/restaurant/">Delete this restaurant</a>
+		<a href="{{url_for('deleteRestaurant', restaurant_id = a.id)}}">Delete this restaurant</a>
 		<br>
 		<br>
 
