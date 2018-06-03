@@ -6,25 +6,27 @@
 </head>
 <body>
 	<h1>Menu list in {{restaurant_name}}</h1>
-	<a href="#">create your own favorite menu</a>
+
+	<p><a href="{{url_for('newMenuItem', restaurant_id=restaurant_id, restaurant_name=restaurant_name)}}">create your own favorite menu</a></p>
 	<br>
 	<br>
 	<br>
 
 	<div>
+		
 		{%for a in items%} 
-		<b>Menu name:{{a.name}} </b> 
-		<br>
-		Description: {{a.description}}
-		<br>
-		Price : {{a.price}}
+		<h3>{{a.name}} </h3> 
+		<p>Description: {{a.description}}</p>
+		<p>Price : {{a.price}}</p>
 		<!-- {{a.id}} -->
+		<p>
+			<a href="#">Edit this menu</a>
+		</p>
+		<p>
+			<a href="#">Delete this menu</a>
+		</p>
 		<br>
-		<a href="#">Edit this menu</a>
-		<br>
-		<a href="#">Delete this menu</a>
-		<br>
-		<br>
+
 		{% endfor %} 
 
 	</div>
