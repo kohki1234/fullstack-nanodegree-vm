@@ -1,7 +1,8 @@
 
 <html>
 <head>
-	<title></title>
+	<title>Main restaurant page</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styles.css')}}">
 </head>
 <body>
 	<h1>Restaurant list in this area</h1>
@@ -14,10 +15,8 @@
 		{% for a in restaurants %}
 		{%if a.id > 9:%}
 			<!-- {{a.id}} -->
-			<b>{{a.name}}</b>
-		<br>
-		description of the restaurant :{{a.description}}
-		<br>
+			<p id="restaurant_name"><b>{{a.name}}</b></p>	
+		<p id="description">description of the restaurant :{{a.description}}</p>
 		<a href="{{url_for('editRestaurant', restaurant_id = a.id)}}">Edit this restaurant</a>
 		<br>
 		<a href="{{url_for('deleteRestaurant', restaurant_id = a.id)}}">Delete this restaurant</a>
