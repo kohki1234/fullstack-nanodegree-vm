@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect,request
+from flask import Flask, render_template, url_for, redirect,request, jsonify
 app = Flask(__name__)
 
 from sqlalchemy import create_engine
@@ -10,6 +10,15 @@ Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+#Making an API endpoint(GET request)
+@app.route('/restaurants/JSON')
+def restaurantsJSON():
+	restaurants = session.query(Restaurant).all()
+	return jsonify(restaurantjson = [test.serialize for test in restaurants])
+
+
+
 
 @app.route("/")
 @app.route("/restaurants")
