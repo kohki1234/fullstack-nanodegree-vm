@@ -79,20 +79,26 @@ def deleteRestaurant(restaurant_id):
 	return render_template('deleterestaurant.html', restaurant_id=restaurant_id, restaurant_name=deletedRestaurant.name)
 
 
-@app.route("/restaurant/restaurant_id/menu")
-def showMenu():
-	return render_template('menu.html', items=items)
+@app.route("/restaurant/<int:restaurant_id>/menu")
+def showMenu(restaurant_id):
+	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+	items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
 
-@app.route("/restaurant/restaurant_id/menu_id/new")
+	return render_template('menu.html', restaurant_id=restaurant_id, restaurant_name=restaurant.name, items=items)
+
+
+
+
+@app.route("/restaurant/<int:restaurant_id>/menu_id/new")
 def newMenuItem():
 	return render_template('newmenuitem.html')
 
 
-@app.route("/restaurant/restaurant_id/menu/menu_id/edit")
+@app.route("/restaurant/<int:restaurant_id>/menu/menu_id/edit")
 def editMenuItem():
 	return render_template('editmenuitem.html')
 
-@app.route("/restaurant/restaurant_id/menu/menu_id/delete")
+@app.route("/restaurant/<int:restaurant_id>/menu/menu_id/delete")
 def deleteMenuItem():
 	return render_template('deletemenuitem.html')
 
