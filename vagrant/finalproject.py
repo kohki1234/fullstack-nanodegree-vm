@@ -19,7 +19,6 @@ def restaurantsJSON():
 
 
 
-
 @app.route("/")
 @app.route("/restaurants")
 def showRestaurants():
@@ -64,8 +63,7 @@ def editRestaurant(restaurant_id):
 		return redirect(url_for('showRestaurants'))
 
 	else:
-		return render_template('editrestaurant.html',restaurant_id = restaurant_id)
-
+		return render_template('editrestaurant.html',restaurant_id = restaurant_id, restaurant_name=editedRestaurant.name)
 
 
 @app.route("/restaurant/<int:restaurant_id>/delete", methods=['GET', 'POST'])
@@ -78,7 +76,7 @@ def deleteRestaurant(restaurant_id):
 		return redirect(url_for('showRestaurants'))
 
 		pass
-	return render_template('deleterestaurant.html', restaurant_id=restaurant_id)
+	return render_template('deleterestaurant.html', restaurant_id=restaurant_id, restaurant_name=deletedRestaurant.name)
 
 
 @app.route("/restaurant/restaurant_id/menu")
