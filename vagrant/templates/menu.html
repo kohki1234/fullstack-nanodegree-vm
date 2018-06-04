@@ -23,7 +23,7 @@
 			<a href="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id = a.id)}}">Edit this menu</a>
 		</p>
 		<p>
-			<a href="#">Delete this menu</a>
+			<a href="{{url_for('deleteMenuItem', restaurant_id=restaurant_id, menu_id = a.id)}}">Delete this menu</a>
 		</p>
 		<br>
 
