@@ -17,6 +17,11 @@ def restaurantsJSON():
 	restaurants = session.query(Restaurant).all()
 	return jsonify(restaurantjson = [test.serialize for test in restaurants])
 
+@app.route('/restaurant/<int:restaurant_id>/menu/JSON')
+def showMenuJSON(restaurant_id):
+	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+	items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
+	return jsonify(MenuItems=[i.serialize for i in items])
 
 
 @app.route("/")
@@ -82,7 +87,7 @@ def deleteRestaurant(restaurant_id):
 @app.route("/restaurant/<int:restaurant_id>/menu")
 def showMenu(restaurant_id):
 	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
-	items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
+	items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
 
 	return render_template('menu.html', restaurant_id=restaurant_id, restaurant_name=restaurant.name, items=items)
 
@@ -94,8 +99,7 @@ def newMenuItem(restaurant_id):
 
 	for m in items:
 		menu_id = m.id
-		menu_name = m.name
-		print menu_id
+		# menu_name = m.name
 
 	if request.method == 'POST':
 		newItem = MenuItem(name = request.form['name'], description = request.form['description'], price = request.form['price'],restaurant_id = restaurant_id)
@@ -134,7 +138,6 @@ def deleteMenuItem(restaurant_id, menu_id):
 		session.delete(editedItems)
 		session.commit()
 		return redirect(url_for('showMenu', restaurant_id = restaurant_id))
-
 
 	return render_template('deletemenuitem.html', menu_id= menu_id, restaurant_id = restaurant_id , menu_name=menu_name)
 
