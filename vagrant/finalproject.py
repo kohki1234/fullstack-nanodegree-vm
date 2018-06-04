@@ -94,6 +94,7 @@ def newMenuItem(restaurant_id):
 
 	for m in items:
 		menu_id = m.id
+		menu_name = m.name
 		print menu_id
 
 	if request.method == 'POST':
@@ -107,9 +108,11 @@ def newMenuItem(restaurant_id):
 
 @app.route("/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit")
 def editMenuItem(restaurant_id, menu_id ):
-	editedItems = session.query(MenuItem).filter_by(id = menu_id)
+	editedItems = session.query(MenuItem).filter_by(id = menu_id).one()
+	menu_name = editedItems.name
+	
 
-	return render_template('editmenuitem.html', menu_id= menu_id, restaurant_id=restaurant_id )
+	return render_template('editmenuitem.html',menu_id= menu_id, restaurant_id = restaurant_id , menu_name=menu_name)
 
 @app.route("/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete")
 def deleteMenuItem():

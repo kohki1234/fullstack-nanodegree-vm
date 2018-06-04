@@ -1,13 +1,22 @@
 <html>
 	<body>
-		<h1>Editing restaurant_name</h1>
+		<h1>Editing {{menu_name}}</h1>
 		<form action= "#" method = 'POST'>
 
 		<p>Name:</p>
-		<input type = 'text' size='30' name = 'name' placeholder = 'item.name'>
+		<input type = 'text' size='30' name = 'name' placeholder = 'item_name'>
 
-		<input type='submit' value='Edit'>
+		<p>description:</p>
+		<input type = 'description' size='30' name = 'description' placeholder = 'item_name'>
+
+		<p>Price:</p>
+		<input type = 'price' size='30' name = 'price' placeholder = 'item_name'>
+
+		<p>
+			<input type='submit' value='Edit'>
+		</p>
+		
 		</form>
-		<a href= '#'>Cancel</a>
+		<a href= '{{url_for('showMenu', restaurant_id=restaurant_id)}}'>Cancel</a>
 	</body>
 </html>
