@@ -29,6 +29,7 @@ def showMenuJSON(restaurant_id):
 def showRestaurants():
 	restaurants = session.query(Restaurant).all()
 
+
 	for n in restaurants:
 		restaurant_id = n.id
 		restaurant_name = n.name
