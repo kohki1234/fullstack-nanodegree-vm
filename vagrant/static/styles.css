@@ -1,18 +1,22 @@
 body {
     text-align: center!important;
     font-family: sans-serif;
-    background-color: #333333;
+    background-color: #CCCC99;
     
 }
 div #burgerimg {
     width: 100%;
 }
 
+div.items {
+
+}
+
 h1,
 h2,
 h3,
 h4 {
-    color: #ffffff;
+    color: #333333;
 }
 
 h1,
@@ -29,15 +33,20 @@ h2 {
     font-size: 1.2em;
 }
 
-p,
+
+#restaurant_name{
+    font-weight: bold;
+    color: #000099;
+}
+
 dd,
 dt {
-    color: #cccccc;
+    color: #333333;
 }
 
 a {
     
-    color: #ffffcc;
+    color: #333333;
     font-size: .75em;
 }
 
@@ -48,7 +57,7 @@ a {
     border-radius: 25px;
     padding: 5px;
     margin: 5px;
-    border-color: #999999;
+    border-color: #333333;
     background-color: #333333
 }
 
